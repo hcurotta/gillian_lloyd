@@ -1,0 +1,56 @@
+.header {
+	
+	margin-right: -30px;
+	margin-left: -30px;
+	background-color: #304848;
+	color: white; 
+	@media (min-width: 0px) { margin-top: 10px; }
+	@media (min-width: 768px) { margin-top: 60px; }
+	@media (min-width: 970px) { margin-top: 100px; }
+
+	.row {
+		// margin: 0 30px;
+	}
+
+	.bio {
+		@media (min-width: 0) { margin: 30px 30px; }
+		@media (min-width: 970px) { margin: 60px 0px; }
+	}
+
+	h1 {
+		@media (min-width: 0) { font-size: 40px; }
+		@media (min-width: 970px) { font-size: 80px; }
+	}
+
+	p.lead {
+		font-size: 30px;
+		margin-bottom: 10px;
+	}
+
+	p.location {
+		font-size: 20px;
+	}
+
+	img {
+		float: right;
+		margin: -40px 0 -40px 0;
+		@media (min-width: 0px) { max-width: 300px; }
+
+		border: 10px solid white; 
+		box-shadow: 0px 0px 2px #888888;
+	}
+
+	.btn {
+		margin-top: 20px;
+		background-color: none;
+		border: 2px solid white;
+		color: white;
+		@media (min-width: 0px) { width: 100%; }
+		@media (min-width: 768px) { width: 60%; }
+
+		&:hover {
+			background-color: white;
+			color: #304848;
+		}
+	}
+}

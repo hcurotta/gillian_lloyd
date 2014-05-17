@@ -1,0 +1,35 @@
+.nav-container {
+	margin-top: 80px;
+	.nav {
+		padding-top: 10px;
+		width: 970px;
+		margin: 0 auto;
+		text-align: center;
+		z-index: 99;
+		background-color: white;
+
+
+		ul {
+			font-size: 25px;
+
+			li.active>a {
+				text-decoration: none;
+				border-bottom: 3px solid #A8A8A8;
+			}
+
+			li {
+				padding: 0 20px;
+
+				a {
+					color: #304860;
+
+					&:hover {
+						text-decoration: none;
+						border-bottom: 3px solid #304860;
+					}
+				}
+			}
+		}
+
+	}	
+}

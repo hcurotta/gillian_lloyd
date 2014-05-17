@@ -1,0 +1,94 @@
+.header
+  .row
+    .col-sm-6
+      .bio
+        %h1 Gillian Lloyd
+        %p.lead Clinical Psychologist
+        %p.location
+          Potts Point, Sydney
+        = link_to "Find out More", "#", class: "btn btn-lg", "data-target" => "#myModal", "data-toggle" => "modal"
+    .col-sm-6
+      = image_tag "gill-sitting.jpg", class: 'hidden-xs'
+
+.nav-container.hidden-sm.hidden-xs
+  .nav#sticky_nav
+    .row
+      .col-md-12
+        %ul.list-unstyled.list-inline
+          %li 
+            %a{href: "#experience"} Experience
+          %li 
+            %a{href: "#specialty"} Specialty
+          %li 
+            %a{href: "#office_hours"} Location + Hours
+          %li 
+            %a{href: "#skype"} Skype
+
+.detail
+  .row#experience
+    .col-md-12
+      %h2 Experience
+      %p= @content.experience
+
+  .row#specialty
+    .col-md-12
+      %h2 Specialty
+      %p= @content.specialty
+
+  .row#office_hours
+    .col-md-12
+      %h2 Location and Office Hours
+    .col-md-5
+      %address
+        %strong= @content.address_line_1
+        %br 
+        = @content.address_line_2
+        - if @content.address_line_2.nil?
+          %br
+        = "#{@content.suburb}, #{@content.state} #{@content.postcode}"
+        %br
+        %abbr{title: "phone"}Ph:
+        = @content.phone
+
+      %table.table.office-hours
+        %tbody
+          - Availability.all.each do |availability|
+            %tr
+              %td= availability.day
+              %td= availability.hours
+
+    .col-md-7
+      #gmap_canvas
+
+  .row#skype
+    .col-md-12
+      %h2 Skype
+    .col-md-4
+    .col-md-8
+      %p= @content.experience
+
+
+.footer
+
+/ Modal
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Request a Session
+      = form_tag "/request_callback", method: "POST", remote: true do
+        .modal-body
+          %p 
+            Gillian is happy to discuss her practice with you over the phone ahead of an appointment. If you would like her to contact you, please submit your phone number below:
+          .form-group
+            %label Phone Number
+            = text_field_tag :phone_number,nil, class: "form-control"
+
+          %p
+            To book an appointment directly, please call 
+            = @content.phone
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+          = submit_tag "Submit", class: "btn btn-primary", id: "submit_call_request"
+

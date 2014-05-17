@@ -1,0 +1,12 @@
+#edit_availabilities
+  - availabilities = (Availability.all.to_a << Availability.new)
+
+  - availabilities.each do |availability|
+    = form_for availability, remote: true do |f|
+      .row.form-inline
+        .form-group
+          = f.select :day, options_for_select(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]), {},class: "form-control"
+          = f.text_field :hours, class: "form-control", placeholder: "e.g. 9am - 3pm"
+          = f.submit class: 'btn btn-primary'
+          = (link_to "delete", "/availabilities/#{availability.id}", class: 'btn btn-danger', method: :delete, remote: true) unless availability.id.nil?
+      %br 

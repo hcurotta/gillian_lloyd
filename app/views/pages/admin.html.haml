@@ -1,0 +1,34 @@
+.admin
+	.row
+		.col-md-12
+			%h1 Edit Page Content
+			%p1.small= link_to "View page", root_url
+			%hr
+			%h2 Bio and Address
+			= form_for @content, url: update_path do |f|
+				= f.hidden_field :id, value: @content.id
+				.form-group
+					= f.label :speciality
+					= f.text_area :specialty, class: "form-control", rows: 8
+				.form-group
+					= f.label :experience
+					= f.text_area :experience, class: "form-control", rows: 8
+				.form-group
+					= f.label :address
+					= f.text_field :address_line_1, class: "form-control", placeholder: "Address Line 1"
+				.form-group
+					= f.text_field :address_line_2, class: "form-control", placeholder: "Address Line 1 (optional)"
+				.row.form-inline
+					.form-group
+						= f.text_field :suburb, class: "form-control", placeholder: "suburb"
+						= f.text_field :postcode, class: "form-control", placeholder: "postcode"
+						= f.text_field :state, class: "form-control", placeholder: "state"
+				%br
+				.form-group
+					= f.label :phone
+					= f.text_field :phone, class: "form-control"
+				= f.submit class: 'btn btn-primary'
+				%hr
+			%h2 Office Hours
+			= render partial: "pages/edit_availability"
+
