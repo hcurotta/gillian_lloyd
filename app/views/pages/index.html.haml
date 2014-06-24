@@ -3,7 +3,9 @@
     .col-sm-6
       .bio
         %h1 Gillian Lloyd
-        %p.lead Clinical Psychologist
+        %p.lead 
+          Clinical Psychologist 
+          %small MAPS
         %p.location
           Potts Point, Sydney
         = link_to "Find out More", "#", class: "btn btn-lg", "data-target" => "#myModal", "data-toggle" => "modal"
@@ -22,18 +24,18 @@
           %li 
             %a{href: "#office_hours"} Location + Hours
           %li 
-            %a{href: "#skype"} Skype
+            %a{href: "#appointments"} Appointments
 
 .detail
   .row#experience
     .col-md-12
       %h2 Experience
-      %p= @content.experience
+      %p= simple_format(@content.experience)
 
   .row#specialty
     .col-md-12
       %h2 Specialty
-      %p= @content.specialty
+      %p= simple_format(@content.specialty)
 
   .row#office_hours
     .col-md-12
@@ -60,12 +62,11 @@
     .col-md-7
       #gmap_canvas
 
-  .row#skype
+  .row#appointments
     .col-md-12
-      %h2 Skype
-    .col-md-4
-    .col-md-8
-      %p= @content.experience
+      %h2 Appointments & Fees
+    .col-md-12
+      %p= simple_format(@content.appointments)
 
 
 .footer

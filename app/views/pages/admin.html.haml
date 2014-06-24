@@ -1,4 +1,12 @@
 .admin
+	- if flash[:success].present?
+		.row
+			.col-md-12
+				%br
+				.alert.alert-success
+					%strong Saved!
+					Your changes saved successfully.
+
 	.row
 		.col-md-12
 			%h1 Edit Page Content
@@ -13,6 +21,9 @@
 				.form-group
 					= f.label :experience
 					= f.text_area :experience, class: "form-control", rows: 8
+				.form-group
+					= f.label :appointments
+					= f.text_area :appointments, class: "form-control", rows: 8
 				.form-group
 					= f.label :address
 					= f.text_field :address_line_1, class: "form-control", placeholder: "Address Line 1"

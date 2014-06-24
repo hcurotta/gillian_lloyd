@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140517194928) do
   create_table "contents", force: true do |t|
     t.text     "experience"
     t.text     "specialty"
+    t.text     "appointments"
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "suburb"

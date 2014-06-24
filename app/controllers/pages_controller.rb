@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	before_filter :authenticate, only: [:admin, :update]
 
 	def index
-		@content = Content.first
+		@content = Content.first || Content.new
 	end
 
 	def admin
@@ -12,7 +12,8 @@ class PagesController < ApplicationController
 	def update
 		@content = Content.where(:id => params[:content][:id]).first_or_initialize
 		@content.update_attributes(permitted_params)
-		render :admin
+    flash = {success: "saved"}
+		redirect_to admin_path, flash: flash
 	end
 
 	def request_callback
