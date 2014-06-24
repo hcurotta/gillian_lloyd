@@ -67,7 +67,10 @@
       %h2 Appointments & Fees
     .col-md-12
       %p= simple_format(@content.appointments)
-
+  .row
+    .col-md-12
+      .center
+        = link_to "Click Here to Speak with Gillian", "#", class: "btn btn-lg", "data-target" => "#myModal", "data-toggle" => "modal"
 
 .footer
 
@@ -92,4 +95,6 @@
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
           = submit_tag "Submit", class: "btn btn-primary", id: "submit_call_request"
+
+
 
