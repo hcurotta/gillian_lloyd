@@ -3,7 +3,6 @@ class CreateContents < ActiveRecord::Migration
     create_table :contents do |t|
       t.text :experience
       t.text :specialty
-      t.text :appointments
       t.string :address_line_1
       t.string :address_line_2
       t.string :suburb
