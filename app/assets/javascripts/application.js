@@ -17,13 +17,13 @@
 
 function init_map(){
 	var myOptions = {zoom:16,
-									 center:new google.maps.LatLng(-33.87058,151.22336100000007),
+									 center:new google.maps.LatLng(-33.864313, 151.212601),
 									 mapTypeId: google.maps.MapTypeId.ROADMAP};
 	map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
 	marker = new google.maps.Marker({map: map,
-																	 position: new google.maps.LatLng(-33.87058, 151.22336100000007)});
+																	 position: new google.maps.LatLng(-33.864313, 151.212601)});
 
-	infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Gillian Lloyd's Practice</div><span>90 Victoria St <br>  Potts Point</span></div>" });
+	infowindow = new google.maps.InfoWindow({content:"<div style='position:relative;line-height:1.34;overflow:hidden;white-space:nowrap;display:block;'><div style='margin-bottom:2px;font-weight:500;'>Gillian Lloyd's Practice</div><span>Suite 1203, <br/> BMA House<br/>135 Macquarie Street<br>Sydney</span></div>" });
 	google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});
 
 	infowindow.open(map,marker);
